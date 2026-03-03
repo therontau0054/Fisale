@@ -1,5 +1,5 @@
 # Fisale
-Code for "[Neural Latent Arbitrary Lagrangian-Eulerian Grids for Fluid-Solid Interaction]((https://arxiv.org/abs/2506.06021))", accepted at International Conference on Learning Representations (ICLR 2026).
+Code for "[Neural Latent Arbitrary Lagrangian-Eulerian Grids for Fluid-Solid Interaction](https://arxiv.org/abs/2603.00792)", accepted at International Conference on Learning Representations (ICLR 2026).
 
 ![FSI](./assets/fsi.png)
 
