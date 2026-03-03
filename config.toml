@@ -1,0 +1,123 @@
+title = "Experimental configs"
+
+[structure_oscillation]
+description = "experiment of structure oscillation"
+version = "250519_1"
+
+assets_root = "./structure_oscillation/assets"
+data_root = "./structure_oscillation/data"
+
+
+[structure_oscillation.hyperparameter]
+model_name = "fisale"
+seed = 42
+lr = 1e-3
+lr_decay = 10
+epochs = 100
+weight_decay = 1e-5
+batch_size = 50
+device = "cuda:0"
+criterion = "relative l2"
+
+
+[structure_oscillation.fisale]
+dim = 2
+input_quantity_dims.solid = 0
+input_quantity_dims.fluid = 3
+input_quantity_dims.interface = 1
+grid_num = 2
+hidden_dims = [64, 64]
+grid_shapes = [
+    [16, 16],
+    [8, 8]
+]
+coupling_steps = 2
+neighbors_nums = [5, 4]
+heads_num = 8
+mlp_ratio = 2
+dropout = 0.0
+act = "gelu"
+
+
+[venous_valve]
+description = "experiment of venous valve"
+version = "2505019_1"
+
+assets_root = "./venous_valve/assets"
+data_root = "./venous_valve/data"
+
+
+[venous_valve.hyperparameter]
+model_name = "fisale"
+seed = 42
+lr = 1e-3
+lr_decay = 10
+epochs = 100
+weight_decay = 0
+batch_time_step = 50
+device = "cuda:1"
+criterion = "mse l2"
+noise_sigma = 0.001
+eval_epoch_gap = 10
+
+
+[venous_valve.fisale]
+dim = 2
+input_quantity_dims.solid = 1
+input_quantity_dims.fluid = 3
+input_quantity_dims.interface = 4
+grid_num = 2
+hidden_dims = [64, 64]
+grid_shapes = [
+    [16, 16],
+    [8, 8]
+]
+coupling_steps = 2
+neighbors_nums = [5, 4]
+heads_num = 8
+mlp_ratio = 2
+dropout = 0.0
+act = "gelu"
+
+
+[flexible_wing]
+description = "experiment of flexible wing"
+version = "250519_1"
+
+assets_root = "./flexible_wing/assets"
+data_root = "./flexible_wing/data"
+
+
+[flexible_wing.hyperparameter]
+model_name = "fisale"
+seed = 42
+lr = 5e-4
+lr_decay = 50
+epochs = 100
+weight_decay = 1e-5
+batch_size = 1
+device = "cuda:2"
+criterion = "relative l2"
+eval_epoch_gap = 5
+
+
+[flexible_wing.fisale]
+dim = 3
+input_quantity_dims.solid = 3
+input_quantity_dims.fluid = 2
+input_quantity_dims.interface = 5
+output_quantity_dims.solid = 1
+output_quantity_dims.fluid = 4
+output_quantity_dims.interface = 5
+grid_num = 2
+hidden_dims = [96, 128]
+grid_shapes = [
+    [5, 5, 5],
+    [4, 4, 4]
+]
+coupling_steps = 3
+neighbors_nums = [5, 4]
+heads_num = 8
+mlp_ratio = 2
+dropout = 0.0
+act = "gelu"
